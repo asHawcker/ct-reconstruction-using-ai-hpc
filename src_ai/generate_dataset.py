@@ -2,9 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage.draw import ellipse
 import os
+import time
+from datetime import timedelta
 
 # CONFIG
-NUM_SAMPLES = 100
+NUM_SAMPLES = 10
 IMG_SIZE = 256
 OUTPUT_DIR = "data/raw_phantoms"
 
@@ -40,6 +42,8 @@ def create_random_phantom(size=256):
     img = np.clip(img, 0, 2.0)
     return img
 
+start_time = time.perf_counter()
+
 print(f"Generating {NUM_SAMPLES} random phantoms...")
 
 for i in range(NUM_SAMPLES):
@@ -51,3 +55,6 @@ print("Done! Example:")
 plt.imshow(create_random_phantom(), cmap='gray')
 plt.title("Sample Random Phantom")
 plt.show()
+
+elapsed = time.perf_counter() - start_time
+print(f"Total execution time: {elapsed:.3f} seconds ({timedelta(seconds=elapsed)})")

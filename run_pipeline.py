@@ -13,7 +13,7 @@ os.makedirs(TARGET_DIR, exist_ok=True)
 
 # 1. Generate Phantoms
 print("--- Step 1: Generating Random Phantoms ---")
-os.system("python3 gen_dataset.py")
+os.system("python3 src_ai/generate_dataset.py")
 
 # 2. Compile C++
 print("--- Step 2: Compiling HPC Solver ---")

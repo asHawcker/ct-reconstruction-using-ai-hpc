@@ -98,6 +98,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    double t_start = omp_get_wtime(); // start timer
+
     string input_path = argv[1];
     string out10_path = argv[2];
     string out50_path = argv[3];
@@ -199,6 +201,10 @@ int main(int argc, char *argv[])
         if (iter % 10 == 0)
             cout << "Iteration " << iter << " complete." << endl;
     }
+
+    double t_end = omp_get_wtime(); // end timer
+    cout << "Total execution time (s): " << (t_end - t_start) << endl;
+
     cout << "Processed: " << input_path << endl;
     return 0;
 }
